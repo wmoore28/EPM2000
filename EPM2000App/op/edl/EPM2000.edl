@@ -1,0 +1,1362 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 706
+y 492
+w 660
+h 510
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 4
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+gridSize 5
+endScreenProperties
+
+# (Meter)
+object activeMeterClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 17
+y 110
+w 300
+h 149
+caseColor index 14
+scaleColor index 0
+labelColor index 0
+fgColor index 20
+bgColor index 14
+topShadowColor index 14
+botShadowColor index 14
+readPv "$(EPM):chA:energy_power"
+labelType "pvLabel"
+showScale
+scaleFormat "FFloat"
+scalePrecision "2"
+useDisplayBg
+labelIntervals "10"
+majorIntervals "1"
+minorIntervals "5"
+complexNeedle
+3d
+scaleMin "0"
+scaleMax "$(maxA)"
+labelFontTag "helvetica-bold-r-18.0"
+scaleFontTag "helvetica-medium-r-10.0"
+meterAngle 120
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 0
+w 660
+h 50
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 23
+value {
+  "Molectron EPM2000 Dual-Channel"
+  "Joulemeter/Power Meter"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 577
+y 1
+w 80
+h 24
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 9
+value {
+  "$(EPM)"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 8
+y 426
+w 645
+h 75
+lineColor index 14
+fill
+fillColor index 6
+lineWidth 2
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 10
+w 20
+h 20
+font "helvetica-medium-r-14.0"
+fgColor index 20
+bgColor index 0
+useDisplayBg
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 577
+y 24
+w 80
+h 24
+controlPv "$(EPM):asyn.PORT"
+format "decimal"
+font "helvetica-bold-r-12.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 9
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 529
+y 24
+w 40
+h 24
+font "helvetica-medium-r-12.0"
+fontAlign "right"
+fgColor index 0
+bgColor index 2
+useDisplayBg
+value {
+  "Port"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 341
+y 432
+w 91
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Generic Command"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 340
+y 449
+w 197
+h 20
+controlPv "$(EPM):command"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fgColor index 14
+bgColor index 50
+editable
+motifWidget
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+inputFocusUpdates
+objType "controls"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 342
+y 279
+w 90
+h 20
+fgColor index 14
+bgColor index 50
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(EPM):chB:rangeSet"
+indicatorPv "$(EPM):chB:rangeSet"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 342
+y 302
+w 46
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Units"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 342
+y 264
+w 51
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Range"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 342
+y 383
+w 57
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Probe Type"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 342
+y 316
+w 90
+h 20
+fgColor index 14
+bgColor index 50
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(EPM):chB:unitsSet"
+indicatorPv "$(EPM):chB:unitsSet"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 561
+y 274
+w 80
+h 25
+fgColor index 14
+onColor index 50
+offColor index 50
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(EPM):chB:zero"
+pressValue "1"
+onLabel "ZERO"
+offLabel "ZERO"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 341
+y 86
+w 174
+h 20
+controlPv "$(EPM):chB:description"
+format "string"
+font "helvetica-medium-r-14.0"
+fgColor index 14
+bgColor index 50
+editable
+motifWidget
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+inputFocusUpdates
+objType "controls"
+endObjectProperties
+
+# (Menu Mux)
+object menuMuxClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 531
+y 85
+w 110
+h 22
+fgColor index 14
+bgColor index 50
+topShadowColor index 2
+botShadowColor index 14
+font "helvetica-bold-r-12.0"
+initialState "2"
+numItems 5
+symbolTag {
+  0 "0-1"
+  1 "0-10"
+  2 "0-100"
+  3 "0-1,000"
+  4 "0-10,000"
+}
+symbol0 {
+  0 "maxB"
+  1 "maxB"
+  2 "maxB"
+  3 "maxB"
+  4 "maxB"
+}
+value0 {
+  0 "1"
+  1 "10"
+  2 "100"
+  3 "1000"
+  4 "10000"
+}
+endObjectProperties
+
+# (Meter)
+object activeMeterClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 341
+y 110
+w 300
+h 149
+caseColor index 14
+scaleColor index 0
+labelColor index 0
+fgColor index 20
+bgColor index 14
+topShadowColor index 14
+botShadowColor index 14
+readPv "$(EPM):chB:energy_power"
+labelType "pvLabel"
+showScale
+scaleFormat "FFloat"
+scalePrecision "1"
+useDisplayBg
+labelIntervals "10"
+majorIntervals "1"
+minorIntervals "5"
+complexNeedle
+3d
+scaleMin "0"
+scaleMax "$(maxB)"
+labelFontTag "helvetica-bold-r-18.0"
+scaleFontTag "helvetica-medium-r-10.0"
+meterAngle 120
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 341
+y 234
+w 300
+h 26
+controlPv "$(EPM):chB:energy_power"
+format "decimal"
+font "helvetica-bold-r-24.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 14
+precision 2
+nullColor index 32
+smartRefresh
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 440
+y 279
+w 100
+h 20
+controlPv "$(EPM):chB:range"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 439
+y 316
+w 100
+h 20
+controlPv "$(EPM):chB:units"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 343
+y 398
+w 197
+h 20
+controlPv "$(EPM):chB:probeType"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 18
+y 279
+w 90
+h 20
+fgColor index 14
+bgColor index 50
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(EPM):chA:rangeSet"
+indicatorPv "$(EPM):chA:rangeSet"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 18
+y 302
+w 46
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Units"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 18
+y 264
+w 51
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Range"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 18
+y 383
+w 57
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Probe Type"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 18
+y 316
+w 90
+h 20
+fgColor index 14
+bgColor index 50
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(EPM):chA:unitsSet"
+indicatorPv "$(EPM):chA:unitsSet"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 237
+y 274
+w 80
+h 25
+fgColor index 14
+onColor index 50
+offColor index 50
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(EPM):chA:zero"
+pressValue "1"
+onLabel "ZERO"
+offLabel "ZERO"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 17
+y 86
+w 174
+h 20
+controlPv "$(EPM):chA:description"
+format "string"
+font "helvetica-medium-r-14.0"
+fgColor index 14
+bgColor index 50
+editable
+motifWidget
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+inputFocusUpdates
+objType "controls"
+endObjectProperties
+
+# (Menu Mux)
+object menuMuxClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 207
+y 85
+w 110
+h 22
+fgColor index 14
+bgColor index 50
+topShadowColor index 2
+botShadowColor index 14
+font "helvetica-bold-r-12.0"
+initialState "2"
+numItems 5
+symbolTag {
+  0 "0-1"
+  1 "0-10"
+  2 "0-100"
+  3 "0-1,000"
+  4 "0-10,000"
+}
+symbol0 {
+  0 "maxA"
+  1 "maxA"
+  2 "maxA"
+  3 "maxA"
+  4 "maxA"
+}
+value0 {
+  0 "1"
+  1 "10"
+  2 "100"
+  3 "1000"
+  4 "10000"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 116
+y 279
+w 100
+h 20
+controlPv "$(EPM):chA:range"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 115
+y 316
+w 100
+h 20
+controlPv "$(EPM):chA:units"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 19
+y 398
+w 197
+h 20
+controlPv "$(EPM):chA:probeType"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 17
+y 449
+w 90
+h 20
+fgColor index 14
+bgColor index 50
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(EPM):baudSet"
+indicatorPv "$(EPM):baudSet"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 125
+y 432
+w 50
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Parity"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 17
+y 432
+w 45
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Baud"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 232
+y 432
+w 66
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Stop Bits"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 125
+y 449
+w 90
+h 20
+fgColor index 14
+bgColor index 50
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(EPM):paritySet"
+indicatorPv "$(EPM):paritySet"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 559
+y 447
+w 80
+h 25
+fgColor index 14
+onColor index 50
+offColor index 50
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(EPM):reset"
+pressValue "1"
+onLabel "RESET"
+offLabel "RESET"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 17
+y 472
+w 90
+h 20
+controlPv "$(EPM):baud"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 125
+y 472
+w 90
+h 20
+controlPv "$(EPM):parity"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 232
+y 472
+w 90
+h 20
+controlPv "$(EPM):stopBits"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 232
+y 449
+w 90
+h 20
+fgColor index 14
+bgColor index 50
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(EPM):stopBitsSet"
+indicatorPv "$(EPM):stopBitsSet"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 17
+y 57
+w 300
+h 16
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 6
+value {
+  "CH. A"
+}
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 341
+y 57
+w 300
+h 16
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 6
+value {
+  "CH. B"
+}
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 512
+y 6
+w 57
+h 14
+font "helvetica-medium-r-12.0"
+fontAlign "right"
+fgColor index 0
+bgColor index 2
+useDisplayBg
+value {
+  "Unit Name"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 561
+y 431
+w 52
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Unit Reset"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 17
+y 234
+w 300
+h 26
+controlPv "$(EPM):chA:energy_power"
+format "decimal"
+font "helvetica-bold-r-24.0"
+fontAlign "center"
+fgColor index 0
+bgColor index 14
+precision 2
+nullColor index 32
+smartRefresh
+useHexPrefix
+showUnits
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 0
+y 25
+w 183
+h 22
+controlPv "$(EPM):description"
+format "exponential"
+font "helvetica-medium-r-12.0"
+fgColor index 0
+bgColor index 9
+editable
+motifWidget
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 6
+w 88
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 0
+bgColor index 34
+useDisplayBg
+value {
+  "Unit Description"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 18
+y 342
+w 155
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Wavelength Compensation"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 18
+y 356
+w 90
+h 20
+controlPv "$(EPM):chA:waveSet"
+format "exponential"
+font "helvetica-medium-r-14.0"
+fgColor index 14
+bgColor index 50
+editable
+motifWidget
+limitsFromDb
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+inputFocusUpdates
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 115
+y 356
+w 100
+h 20
+controlPv "$(EPM):chA:wave"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+limitsFromDb
+nullColor index 32
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 439
+y 356
+w 100
+h 20
+controlPv "$(EPM):chB:wave"
+format "string"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor index 2
+bgColor index 54
+limitsFromDb
+nullColor index 32
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 342
+y 356
+w 90
+h 20
+controlPv "$(EPM):chB:waveSet"
+format "exponential"
+font "helvetica-medium-r-14.0"
+fgColor index 14
+bgColor index 50
+editable
+motifWidget
+limitsFromDb
+nullColor index 32
+fastUpdate
+useHexPrefix
+newPos
+inputFocusUpdates
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 342
+y 342
+w 155
+h 12
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 13
+bgColor index 0
+useDisplayBg
+value {
+  "Set Wavelength Compensation"
+}
+autoSize
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 613
+y 476
+w 26
+h 22
+fgColor index 14
+bgColor index 50
+topShadowColor index 6
+botShadowColor index 14
+font "helvetica-medium-r-18.0"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "asyn/asynRecord"
+}
+menuLabel {
+  0 "Asyn Port Expert"
+}
+symbols {
+  0 "P=$(EPM):,R=asyn,PORT=PM4"
+}
+icon
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 503
+y 482
+w 100
+h 16
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 34
+useDisplayBg
+value {
+  "Expert"
+}
+endObjectProperties
+
