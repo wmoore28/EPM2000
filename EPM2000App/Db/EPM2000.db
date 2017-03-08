@@ -1,0 +1,225 @@
+#
+# File: EPM2000.db
+#
+# Database for Molectron EPM2000/EPM2000e Dual-Channel Joulemeter/Power Meter 
+#
+# Author: Wesley Moore (wmoore@jlab.org)
+# Date:   Feb 2011
+#
+
+#
+# Unit records
+#
+record(asyn, "$(P)$(R)asyn") {
+    field(PORT, "$(PORT)")
+}
+record(stringin,"$(P)$(R)description") {
+	field(DESC,"Unit Description")
+	field(VAL,"")
+}
+record(bi,"$(P)$(R)backlight") {
+	field(SCAN,"2 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getBacklight $(PORT)")
+	field(ZNAM,"OFF")
+	field(ONAM,"ON")
+}
+record(stringout,"$(P)$(R)command") {
+	field(DTYP,"stream")
+	field(VAL,"")
+	field(OUT,"@EPM2000.proto command $(PORT)")
+}
+record(bo,"$(P)$(R)backlightSet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setBacklight $(PORT)")
+	field(ZNAM,"OFF")
+	field(ONAM,"ON")
+}
+record(bo,"$(P)$(R)reset") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto reset $(PORT)")
+}
+
+# serial settings
+record(stringin,"$(P)$(R)baud") {
+	field(SCAN,"2 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getBaud $(PORT)")
+}
+record(mbbo,"$(P)$(R)baudSet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setBaud $(PORT)")
+	field(ZRST,"1200")
+	field(ONST,"2400")
+	field(TWST,"4800")
+	field(THST,"9600")
+	field(FRST,"19200")
+	field(FVST,"38400")
+}
+record(stringin,"$(P)$(R)parity") {
+	field(SCAN,"2 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getParity $(PORT)")
+}
+record(mbbo,"$(P)$(R)paritySet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setParity $(PORT)")
+	field(ZRST,"ODD")
+	field(ONST,"EVEN")
+	field(TWST,"NONE")
+}
+record(stringin,"$(P)$(R)stopBits") {
+	field(SCAN,"2 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getStopBits $(PORT)")
+}
+record(mbbo,"$(P)$(R)stopBitsSet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setStopBits $(PORT)")
+	field(ZRST,"1")
+	field(ONST,"")
+	field(TWST,"2")
+}
+
+#
+# Channel A
+#
+
+
+record(ao,"$(P)$(R)chA:waveSet") {
+	field(DESC,"Wavelength Compensation")
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setWave(a) $(PORT)")
+	field(PREC,"2")
+	field(EGU,"nm")
+}
+record(ai,"$(P)$(R)chA:energy_power") {
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto query(a) $(PORT)")
+	field(PREC,"0")
+	field(EGU,"Joules|Watts")
+}
+record(ai,"$(P)$(R)chA:wave") {
+	field(DESC,"Wavelength Compensation")
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getWave(a) $(PORT)")
+	field(PREC,"2")
+	field(EGU,"nm")
+}
+record(stringin,"$(P)$(R)chA:probeType") {
+	field(SCAN,"10 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getProbeType(a) $(PORT)")
+}
+record(stringin,"$(P)$(R)chA:range") {
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getRange(a) $(PORT)")
+}
+record(stringin,"$(P)$(R)chA:units") {
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getUnits(a) $(PORT)")
+}
+record(stringin,"$(P)$(R)chA:description") {
+}
+record(mbbo,"$(P)$(R)chA:rangeSet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setRange(a) $(PORT)")
+	field(ZRST,"Auto")
+	field(ONST,"30mW")
+	field(TWST,"300mW")
+	field(THST,"1W")
+	field(FRST,"3W")
+	field(FVST,"10W")
+	field(SXST,"30W")
+	field(SVST,"100W")
+	field(EIST,"300W")
+	field(NIST,"1kW")
+	field(TEST,"3kW")
+	field(ELST,"10kW")
+}
+record(mbbo,"$(P)$(R)chA:unitsSet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setUnits(a) $(PORT)")
+	field(ZRST,"VOLTS")
+	field(ONST,"JOULES")
+	field(TWST,"WATTS")
+}
+record(bo,"$(P)$(R)chA:zero") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto zero(a) $(PORT)")
+}
+
+#
+# Channel B
+#
+record(ao,"$(P)$(R)chB:waveSet") {
+	field(DESC,"Wavelength Compensation")
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setWave(b) $(PORT)")
+	field(PREC,"2")
+	field(EGU,"nm")
+}
+record(ai,"$(P)$(R)chB:energy_power") {
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto query(b) $(PORT)")
+	field(PREC,"0")
+	field(EGU,"Joules|Watts")
+}
+record(ai,"$(P)$(R)chB:wave") {
+	field(DESC,"Wavelength Compensation")
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getWave(b) $(PORT)")
+	field(PREC,"2")
+	field(EGU,"nm")
+}
+record(stringin,"$(P)$(R)chB:probeType") {
+	field(SCAN,"10 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getProbeType(b) $(PORT)")
+}
+record(stringin,"$(P)$(R)chB:range") {
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getRange(b) $(PORT)")
+}
+record(stringin,"$(P)$(R)chB:units") {
+	field(SCAN,"1 second")
+	field(DTYP,"stream")
+	field(INP,"@EPM2000.proto getUnits(b) $(PORT)")
+}
+record(stringin,"$(P)$(R)chB:description") {
+}
+record(mbbo,"$(P)$(R)chB:rangeSet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setRange(b) $(PORT)")
+	field(ZRST,"Auto")
+	field(ONST,"30mW")
+	field(TWST,"300mW")
+	field(THST,"1W")
+	field(FRST,"3W")
+	field(FVST,"10W")
+	field(SXST,"30W")
+	field(SVST,"100W")
+	field(EIST,"300W")
+	field(NIST,"1kW")
+	field(TEST,"3kW")
+	field(ELST,"10kW")
+}
+record(mbbo,"$(P)$(R)chB:unitsSet") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto setUnits(b) $(PORT)")
+	field(ZRST,"VOLTS")
+	field(ONST,"JOULES")
+	field(TWST,"WATTS")
+}
+record(bo,"$(P)$(R)chB:zero") {
+	field(DTYP,"stream")
+	field(OUT,"@EPM2000.proto zero(b) $(PORT)")
+}
+

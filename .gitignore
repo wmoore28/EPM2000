@@ -1,0 +1,11 @@
+O.*
+bin/
+db/
+dbd/
+envPaths
+cdCommands
+pv.list
+
+# editor backups
+*~
+*.swp

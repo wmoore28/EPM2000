@@ -1,0 +1,130 @@
+# File: EPM2000
+# Desc: Molectron EPM2000/EPM2000e Dual-Channel Joulemeter/Power Meter
+#
+# Parameters:
+#   $1 = channel identifier [a|b].
+#
+# Author: Wesley Moore
+# Date:   Feb 2011
+
+OutTerminator = CR;
+InTerminator = CR;
+writetimeout = 100;
+readtimeout = 300; # milliseconds
+replytimeout = 500; # milliseconds
+ExtraInput = Ignore;
+
+# Generic Command
+command {
+	ExtraInput = Ignore;
+	out "%s";
+	in "%39c";
+}
+
+# Backlight
+getBacklight {
+	out "syst opt bac ?"; 
+	in "SYSTEM: OPTION: BAC %{OFF|ON}";
+	@mismatch {in "%*cSYSTEM: OPTION: BAC %{OFF|ON}";}
+}
+
+setBacklight {
+	out "syst opt bac %{OFF|ON}";
+	@init { getBacklight; } 
+}
+
+# Display Current Reading - data currently displayed on the LCD.  Essentially 
+#   the energy/power readback.
+query {
+	out "ch \$1 query";
+	in "CHAN %*c: QUERY  %f %(EGU)s";
+	@mismatch { in "%*cCHAN %*c: QUERY %f %(EGU)s"; }
+}
+
+# Probe Type - determine the type of probe attached.
+getProbeType {
+	out "ch \$1 type ?";
+	in "CHAN %*c: TYPE %s";
+	@mismatch {in "%*cCHAN %*c: TYPE %s";}
+}
+
+# Range, Current - channel's current range
+getRange {
+	out "ch \$1 range ?";
+	in "CHAN %*c: RANGE %s";
+	@mismatch {in "%*cCHAN %*c: RANGE %s";}
+}
+
+setRange { 
+	out "ch \$1 range %{auto|30mW|300mW|1W|3W|10W|30W|100W|300W|1kW|3kW|10kW}";
+	@init { getRange; }
+}
+
+getWave {
+	out "ch \$1 wave ?";
+	in "CHAN %*c: WAVELENGTH %f %(EGU)s"; 
+	@mismatch {in "%*cCHAN %*c: WAVELENGTH COMPENSATION: %f (EGU)s"; }
+}
+
+setWave {
+	out "ch \$1 wave %.3e";
+	@init { getWave; }
+}
+
+# Reset - Immediately reset the EPM2000.
+reset {
+	out "*rst";
+}
+
+# RS-232 Baud Rate
+getBaud {
+	out "comm rs232 baud ?";
+	in "COMM: RS232: BAUD %s";
+	@mismatch {in "%*cCOMM: RS232: BAUD %s";}
+}
+
+setBaud {
+	out "comm rs232 baud %{1200|2400|4800|9600|19200|38400}";
+	@init { getBaud; }
+}
+
+#RS-232 Parity
+getParity {
+	out "comm rs232 par ?";
+	in "COMM: RS232: PARITY %s";
+	@mismatch {in "%*cCOMM: RS232: PARITY %s";}
+}
+
+setParity {
+	out "comm rs232 par %{ODD|EVEN|NONE}";
+	@init { getParity; }
+}
+
+#RS-232 Stop Bits
+getStopBits {
+	out "comm rs232 stop ?";
+	in "COMM: RS232: STOPBITS %s";
+	@mismatch {in "%*cCOMM: RS232: STOPBITS %s";}
+}
+
+setStopBits {
+	out "comm rs232 stop %{1|2}";
+	@init { getStopBits; }
+}
+
+# Units - measurement units.
+getUnits {
+	out "ch \$1 units ?";
+	in "CHAN %*c: UNITS %s";
+	@mismatch {in "%*cCHAN %*c: UNITS %s";}
+}
+
+setUnits {
+	out "ch \$1 units %{Volts|Joules|Watts}";
+	@init { getUnits; }
+}
+
+# Zero - set probe input voltage as a zero baseline value.
+zero {
+	out "ch \$1 zero";
+}
